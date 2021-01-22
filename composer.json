@@ -1,8 +1,22 @@
 {
-    "name": "heyday/xTerraform",
-    "version": "0.0.1",
-    "dist": {
-        "url": "https://www.smarty.net/files/Smarty-3.1.7.zip",
-        "type": "zip"
-    }
+    "name": "heyday/xterraform",
+    "type": "library",
+    "description": "xTerraform package will provide project with easily scalable and maintainable cloud infrastructure.",
+    "keywords": [
+        "aws",
+        "cloud",
+        "code",
+        "infrastructure",
+        "terraform"
+    ],
+    "homepage": "https://github.com/heyday/xterraform",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "scaventum",
+            "email": "developers@wundermanthompson.com",
+            "homepage": "https://github.com/heyday/xterraform",
+            "role": "Developer"
+        }
+    ]
 }
