@@ -42,13 +42,13 @@ log_retention_in_days = 7 // Amount of days before the container log gets wiped 
 
 db = false // If true, a DB cluster is created
 db_password = "default_db_password" // Initial password for DB
-db_engine_mode = "provisioned" // Available type: global, parallelquery, provisioned, serverless, multimaster
+db_engine_mode = "serverless" // Available type: global, parallelquery, provisioned, serverless, multimaster
 db_replica_count = 1 // DB replica count, no need to specify if db_engine_mode is serverless
 db_instance_type = "db.t2.small" // DB instance tier type, no need to specify if db_engine_mode is serverless
-db_external_access = true // If true, external ip can access DB
+db_external_access = false // If true, external ip can access DB
 
 # Storage Variables
 
-storage = true // If true, a storage is created
-storage_cdn = true // If true, create storage distribution (CDN)
+storage = false // If true, a storage is created
+storage_cdn = false // If true, create storage distribution (CDN)
 storage_principal_arn = "" // User/Role ARN with admin access to S3
