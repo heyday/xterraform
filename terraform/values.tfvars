@@ -1,12 +1,12 @@
 # Application Variables
 
-app_name = "xterraform" // Name of the project/application
-app_env = "s1" // Environment type
+app_name = "app" // Name of the project/application
+app_env = "test" // Environment type
 
 # Provider Variables
 
 aws_region = "ap-southeast-2" // Selected AWS region
-aws_profile = "akqa"
+aws_profile = "profile" // Selected AWS profile
 
 # Network Variables 
 
