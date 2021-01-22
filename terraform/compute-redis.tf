@@ -11,8 +11,8 @@ module "ecs_task_definition_redis" {
   task_container_port = "6379"
   task_host_port      = "6379"
 
-  task_definition_cpu    = "512"
-  task_definition_memory = "1024"
+  task_definition_cpu    = var.task_cpu
+  task_definition_memory = var.task_memory
 
   task_container_environment = {
     "ENV" = "test"

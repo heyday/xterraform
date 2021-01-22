@@ -46,6 +46,14 @@ variable "cache_service" {
   type = bool
 }
 
+variable "task_cpu" {
+  type = number
+}
+
+variable "task_memory" {
+  type = number
+}
+
 variable "tasks_desired_count" {
   type = number
 }
