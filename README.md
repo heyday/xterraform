@@ -5,8 +5,9 @@ xTerraform package will provide project with easily scalable and maintainable cl
 ## Contents
 
 - [Requirements](#requirements)
-
 - [Installation](#installation)
+- [Application](#application)
+- [Destruction](#destruction)
 
 ## Requirements
 
@@ -39,4 +40,4 @@ Installation of xTerraform is per project basis. So do the following:
 
 ## Destruction
 
-1. Apply infrastructure: `terraform destroy -var-file=values.tfvars`
+1. Destroy infrastructure: `terraform destroy -var-file=values.tfvars`
