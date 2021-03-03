@@ -24,7 +24,7 @@ Installation of xTerraform is per project basis. So do the following:
 
 1. Open terminal, change directory to current project root folder.
 
-2. Install xTerraform: `composer require heyday/xterraform`.
+2. Install xTerraform: `composer require heyday/xterraform --dev`.
 
 3. Publish Terraform templates to desired directory: `cp vendor/heyday/xterraform/terraform .xterraform/test`.
 
