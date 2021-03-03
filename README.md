@@ -26,11 +26,11 @@ Installation of xTerraform is per project basis. So do the following:
 
 2. Install xTerraform: `composer require heyday/xterraform`.
 
-3. Create folder to contain terraform templates, for example: `mkdir -p .terraform/test`.
+3. Create folder to contain terraform templates, for example: `mkdir -p .xterraform/test`.
 
-4. Publish Terraform templates to desired directory: `cp -R vendor/heyday/xterraform/terraform/ .terraform/test`.
+4. Publish Terraform templates to desired directory: `cp -R vendor/heyday/xterraform/terraform/ .xterraform/test`.
 
-5. Navigate to that directory: `cd .terraform/test`.
+5. Navigate to that directory: `cd .xterraform/test`.
 
 6. Update `values.tfvars` as needed.
 
