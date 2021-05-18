@@ -81,7 +81,7 @@ resource "aws_ecs_service" "ecs_service_redis" {
     assign_public_ip = false
     subnets          = module.vpc.private_subnets
     security_groups = [
-      module.sg_redis.this_security_group_id
+      module.sg_redis.security_group_id
     ]
   }
 

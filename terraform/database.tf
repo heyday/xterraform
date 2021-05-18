@@ -5,7 +5,7 @@ module "db" {
 
   create_cluster = var.db
 
-  name = "${local.app_name_env}"
+  name = local.app_name_env
 
   engine         = "aurora-mysql"
   engine_mode    = var.db_engine_mode
@@ -15,7 +15,7 @@ module "db" {
   subnets = var.db_external_access ? module.vpc.public_subnets : module.vpc.private_subnets
 
   replica_count          = var.db_engine_mode == "serverless" ? 0 : var.db_replica_count // no instance if serverless
-  vpc_security_group_ids = [module.sg_db.this_security_group_id]
+  vpc_security_group_ids = [module.sg_db.security_group_id]
   create_security_group  = false
   instance_type          = var.db_instance_type
   storage_encrypted      = true
@@ -43,14 +43,14 @@ module "db" {
 
 # Create DB Parameter Group
 resource "aws_db_parameter_group" "aurora_db_57_parameter_group" {
-  name        = "test-aurora-db-57-parameter-group"
+  name        = "${local.app_name_env}-aurora-db-57-parameter-group"
   family      = "aurora-mysql5.7"
   description = "test-aurora-db-57-parameter-group"
 }
 
 # Create Cluster Parameter Group
 resource "aws_rds_cluster_parameter_group" "aurora_57_cluster_parameter_group" {
-  name        = "test-aurora-57-cluster-parameter-group"
+  name        = "${local.app_name_env}-aurora-57-cluster-parameter-group"
   family      = "aurora-mysql5.7"
   description = "test-aurora-57-cluster-parameter-group"
 }

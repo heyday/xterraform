@@ -2,7 +2,7 @@
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "${local.app_name_env}"
+  name = local.app_name_env
   cidr = var.vpc_cidr_block
 
   azs             = var.vpc_azs
@@ -30,15 +30,15 @@ module "alb" {
 
   load_balancer_type = "application"
 
-  vpc_id             = module.vpc.vpc_id
-  subnets            = module.vpc.public_subnets
-  security_groups    = [
-    module.sg_alb.this_security_group_id
+  vpc_id  = module.vpc.vpc_id
+  subnets = module.vpc.public_subnets
+  security_groups = [
+    module.sg_alb.security_group_id
   ]
 
   target_groups = [
     {
-      name      = "${local.app_name_env}-tg"
+      name             = "${local.app_name_env}-tg"
       backend_protocol = "HTTP"
       backend_port     = 80
       target_type      = "ip"

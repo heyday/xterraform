@@ -49,12 +49,12 @@ module "cdn" {
   wait_for_deployment = false
 
   logging_config = {
-    bucket = module.s3_bucket_public_cdn_logs.this_s3_bucket_bucket_domain_name
+    bucket = module.s3_bucket_public_cdn_logs.s3_bucket_bucket_domain_name
   }
 
   origin = {
     s3_one = {
-      domain_name = module.s3_bucket_public.this_s3_bucket_bucket_regional_domain_name
+      domain_name = module.s3_bucket_public.s3_bucket_bucket_regional_domain_name
     }
   }
 

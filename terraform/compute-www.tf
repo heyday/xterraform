@@ -39,7 +39,7 @@ resource "aws_ecs_service" "ecs_service_www" {
   cluster = aws_ecs_cluster.ecs.id
 
   task_definition = module.ecs_task_definition_www.task_definition_arn
-  desired_count   = var.tasks_desired_count
+  desired_count   = 1
   launch_type     = "FARGATE"
 
   deployment_controller {
@@ -50,7 +50,7 @@ resource "aws_ecs_service" "ecs_service_www" {
     assign_public_ip = false
     subnets          = module.vpc.private_subnets
     security_groups = [
-      module.sg_ecs.this_security_group_id
+      module.sg_ecs.security_group_id
     ]
   }
 
@@ -63,6 +63,15 @@ resource "aws_ecs_service" "ecs_service_www" {
   lifecycle {
     ignore_changes = [
       task_definition,
+      desired_count
     ]
   }
+}
+
+resource "aws_appautoscaling_target" "ecs_target" {
+  max_capacity       = var.tasks_desired_count
+  min_capacity       = 1
+  resource_id        = "service/${aws_ecs_cluster.ecs.name}/${aws_ecs_service.ecs_service_www.name}"
+  scalable_dimension = "ecs:service:DesiredCount"
+  service_namespace  = "ecs"
 }
